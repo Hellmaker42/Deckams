@@ -1,0 +1,17 @@
+@model MvcAdmin.ViewModels.PostAboutUsViewModel
+@{
+    ViewData["Title"] = "Redigera Om Oss";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h1 class="page-title">Redigera Info "Om oss"</h1>
+<section class="form-container">
+  <form class="form" asp-action="CreateInfo" method="post">
+    <div class="form-control">
+      <label asp-for="@Model!.Info">Om Oss:</label>
+      <input asp-for="@Model!.Info" />
+    </div>  
+    <button type="submit" class="btn">Spara</button>
+  </form>
+</section>
