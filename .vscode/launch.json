@@ -13,7 +13,8 @@
       "program": "${workspaceFolder}/Clients/MvcAdmin/bin/Debug/net6.0/MvcAdmin.dll",
       "args": [],
       "cwd": "${workspaceFolder}/Clients/MvcAdmin",
-      "stopAtEntry": false,
+      "stopAtEntry": true,
+      "justMyCode": false,
       "serverReadyAction": {
         "action": "openExternally",
         "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
@@ -35,7 +36,8 @@
       "program": "${workspaceFolder}/Deckams-Api/bin/Debug/net6.0/Deckams-Api.dll",
       "args": [],
       "cwd": "${workspaceFolder}/Deckams-Api",
-      "stopAtEntry": false,
+      "stopAtEntry": true,
+      "justMyCode": false,
       "serverReadyAction": {
         "action": "openExternally",
         "pattern": "\\bNow listening on:\\s+(https?://\\S+)"

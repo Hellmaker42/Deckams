@@ -9,20 +9,50 @@
 </head>
 <body>
   <header>
-    <nav>  
-      <div>
-      <img class="logo" src="~/img/site/logo.png" alt="Logo">
-      </div>
-      <div>
-        <p class="rubrik">Administration</p>
-      </div>
-        <ul>
-          <li>
-            <a asp-controller="Product" asp-action="">PRODUKTER</a>
-            <a asp-controller="" asp-action="">ANVÄNDARE</a>
-            <a asp-controller="Misc" asp-action="aboutus">INFO</a>
-          </li>
-        </ul>
+    <nav>
+      <table border="0">
+        <tr>
+          <td colspan="3">
+            <div>
+              <img class="logo" src="~/img/site/logo.png" alt="Logo">
+            </div>
+          </td>
+          <td class="infoTd">
+
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <div>
+              <p class="rubrik">Administration</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0">
+              <tr>
+                <td>
+                  <div class="form-control divSpaceBelow divMenu">
+                    <a asp-controller="Products" asp-action="Index">PRODUKTER</a> 
+                  </div>
+                </td>
+                <td>
+                  <div class="form-control divSpaceBelow divMenu">
+                    <a asp-route="GetTheUsers">ANVÄNDARE</a>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-control divSpaceBelow divMenu">
+                    <a asp-controller="Misc" asp-action="Index">INFO</a>
+                  </div> 
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>  
+
     </nav>
   </header>
   <main>

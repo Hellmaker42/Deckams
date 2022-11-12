@@ -16,19 +16,21 @@ namespace MvcAdmin.Controllers
       _miscService = new MiscServiceModel(_config);
     }
 
+    [Route("Index")]
     public IActionResult Index()
     {
       return View();
     }
 
-    [HttpGet("aboutus")]
+    [Route("Misc/About", Name = "GetAboutUs")]
+    [HttpGet("Aboutus")]
     public async Task<IActionResult> GetAboutUsInfo()
     {
       var aboutInfo = await _miscService.GetAboutUsInfo();
       return View("UpdateAboutUs", aboutInfo);
     }
 
-    [Route("Misc/UpdateAboutUs", Name = "Update")]
+    [Route("Misc/UpdateAboutUs", Name = "UpdateAboutUs")]
     [HttpPut("UpdateAboutUs")]
     public async Task<IActionResult> UpdateAboutUs(AboutUsViewModel aboutModel)
     {

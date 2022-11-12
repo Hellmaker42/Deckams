@@ -1,24 +1,46 @@
 @model MvcAdmin.ViewModels.AboutUsViewModel
 
+<section>
+  <table border="0">
+    <tr>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a class="centerText" asp-route="GetAboutUs">UPPDATERA OM OSS</a></div>
+      </td>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a class="centerText" href="">UPPDATERA KONTAKTINFO</a></div>
+      </td>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a class="centerText" href="">UPPDATERA VILLKOR</a></div>
+      </td>
+    </tr>
+  </table>  
+</section>
 
-<p class="rubrik">Redigera Info "Om oss"</p>
 <section class="form-container">
-  <form class="form" asp-route="Update" method="post">
-      <table>
+  <form class="form" asp-route="UpdateAboutUs" method="post">
+      <table border="0">
+
         <tr>
-          <td class="tdTop">
-            <div class="form-control">
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
               <label asp-for="@Model!.Info">Om Oss:</label>
             </div>
           </td>
-          <td>
-            <div class="form-control">
+          <td class="tdSpaceToTop" rowspan="2">
+            <div class="form-control divSpaceBelow">
               <textarea rows="30" cols="100" asp-for="@Model!.Info">@Model.Info</textarea>
             </div>
           </td>
+          <tr>
+            <td class="tdAlignBottom">
+              <div class="form-control divSpaceBelow">
+                <button type="submit" class="btn">Spara Info</button>
+                </div>
+            </td>
+          </tr>
         </tr>
       </table> 
-    <button type="submit" class="btn">Spara Info</button>
+    
   </form>
 </section>
 <section class="updated">

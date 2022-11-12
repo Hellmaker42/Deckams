@@ -13,7 +13,7 @@ body {
 main {
   margin: auto;
   width: 70%;
-  padding: 3rem 2rem;
+  padding: 20px 2rem;
 }
 
 h2 {
@@ -33,10 +33,13 @@ a {
   color: #000;
   text-decoration: none;
 }
-
-td {
-  padding: 0 20px 0 0;
+table {
+  padding: 0 0 0 0;
 }
+
+/* td {
+  padding: 0 20px 10px 0;
+} */
 
 ul {
   list-style: none;
@@ -51,11 +54,42 @@ ul {
 }
 
 .tdTop {
+  height: 50%;
   vertical-align: top;
 }
 
+.infoTd {
+  width: 200px;
+}
+
+.tdAlignBottom {
+  height: 50%;
+  vertical-align: bottom;
+  padding: 0 0 4px 0;
+}
+
+.tdSpaceToRight {
+  padding: 0 20px 0 0;
+}
+
+.tdSpaceToTop {
+  padding: 10px 0 0 0;
+}
+
+.divSpaceBelow {
+  padding: 5px 3px 1px 3px;
+}
+
+.divMenu:hover {
+  background-color: blanchedalmond;
+}
+
+.centerText {
+  vertical-align: bottom;
+}
+
 .rubrik {
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   font-size: 2rem;
 }
 
