@@ -1,0 +1,123 @@
+@model MvcAdmin.ViewModels.ContactInfoViewModel
+
+<section>
+  <table border="0">
+    <tr>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a class="centerText" asp-route="GetAboutUs">UPPDATERA OM OSS</a></div>
+      </td>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a class="centerText" asp-route="GetContactInfo">UPPDATERA KONTAKTINFO</a></div>
+      </td>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a class="centerText" href="">UPPDATERA VILLKOR</a></div>
+      </td>
+    </tr>
+  </table>  
+</section>
+
+<section class="form-container">
+  <form class="form" asp-route="UpdateContactInfo" method="post">
+      <table border="0">
+
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.CompanyName">Företagsnamn:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model.CompanyName"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.Street">Gatuaddress:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model.Street" />
+            </div>
+          </td>       
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.ZipCode">PostNr:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model.ZipCode" />
+            </div>
+          </td>       
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.City">Ort:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model.City" />
+            </div>
+          </td>       
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.PhoneNr">TelefonNr:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model.PhoneNr" />
+            </div>
+          </td>       
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.Email">Email:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model.Email" />
+            </div>
+          </td>       
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.OrgNr">OrganisationsNr:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model.OrgNr" />
+            </div>
+          </td>       
+        </tr>
+          <tr>
+            <td class="tdAlignBottom" colspan="2">
+              <div class="form-control divSpaceBelow">
+                <button type="submit" class="btn">Spara Info</button>
+                </div>
+            </td>
+          </tr>
+      </table> 
+    
+  </form>
+</section>
+
+<section class="updated">
+  @if(ViewBag.updateded is true){
+    <h2 class="updatedText">Uppdaterad!</h2>
+  }
+</section>

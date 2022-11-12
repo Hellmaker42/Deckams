@@ -81,7 +81,11 @@ ul {
 }
 
 .divMenu:hover {
-  background-color: blanchedalmond;
+  background-color: rgb(234, 39, 39);
+}
+
+.divMenu:hover a {
+  color: #fff;
 }
 
 .centerText {

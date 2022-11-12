@@ -42,6 +42,26 @@ namespace MvcAdmin.Controllers
       return View("Error!");
     }
 
+    [Route("Misc/ContactInfo", Name = "GetContactInfo")]
+    [HttpGet("ContactInfo")]
+    public async Task<IActionResult> GetContactInfo()
+    {
+      var contactInfo = await _miscService.GetContactInfo();
+      return View("UpdateContactInfo", contactInfo);
+    }
+
+    [Route("Misc/UpdateContactInfo", Name = "UpdateContactInfo")]
+    [HttpPut("UpdateContactInfo")]
+    public async Task<IActionResult> UpdateContactInfo(ContactInfoViewModel contactModel)
+    {
+      if (await _miscService.UpdateContactInfo(contactModel))
+      {
+        ViewBag.updateded = true;
+        return View("UpdateContactInfo", contactModel);
+      }
+      return View("Error!");
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

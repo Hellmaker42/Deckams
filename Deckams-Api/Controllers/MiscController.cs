@@ -31,5 +31,23 @@ namespace Deckams_Api.Controllers
 
       return StatusCode(500, "Det gick inte att spara info.");
     }
+
+    [HttpGet("ContactInfo")]
+    public async Task<ContactInfoViewModel> GetContactInfo()
+    {
+      return await _miscRepo.GetContactInfoAsync();
+    }
+
+    [HttpPut("ContactInfo")]
+    public async Task<ActionResult> UpdateContactInfo(PutContactInfoViewModel contactModel)
+    {
+      await _miscRepo.UpdateContactInfoAsync(contactModel);
+      if (await _miscRepo.SaveAllAsync())
+      {
+        return StatusCode(201);
+      }
+
+      return StatusCode(500, "Det gick inte att spara info.");
+    }
   }
 }
