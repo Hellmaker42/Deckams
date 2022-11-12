@@ -18,16 +18,31 @@ namespace MvcAdmin.Models
       };
     }
 
-    // public async Task<AboutUsViewModel> GetAboutUsInfo()
-    // {
-
-    // }
-    public async Task<bool> CreateInfo(PostAboutUsViewModel infoModel)
+    public async Task<AboutUsViewModel> GetAboutUsInfo()
     {
       using var http = new HttpClient();
-      var url = $"{_baseUrl}";
+      var url = $"{_baseUrl}misc/aboutus";
 
-      var response = await http.PostAsJsonAsync(url, infoModel);
+      var response = await http.GetAsync(url);
+      if (!response.IsSuccessStatusCode)
+      {
+        throw new Exception("Det här gick ju inte bra tyvärr..");
+      }
+      var modelToSend = await response.Content.ReadFromJsonAsync<AboutUsViewModel>();
+
+      return modelToSend ?? new AboutUsViewModel();
+    }
+    public async Task<bool> UpdateAboutUsInfo(AboutUsViewModel infoModel)
+    {
+      var putInfoModel = new PutAboutUsViewModel
+      {
+        Info = infoModel.Info
+      };
+
+      using var http = new HttpClient();
+      var url = $"{_baseUrl}misc/aboutus";
+
+      var response = await http.PutAsJsonAsync(url, putInfoModel);
 
       if (!response.IsSuccessStatusCode)
       {

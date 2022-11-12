@@ -1,6 +1,6 @@
 namespace MvcAdmin.ViewModels
 {
-  public class PostAboutUsViewModel
+  public class PutAboutUsViewModel
   {
     public string? Info { get; set; }
   }

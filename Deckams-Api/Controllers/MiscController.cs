@@ -14,22 +14,22 @@ namespace Deckams_Api.Controllers
       _miscRepo = miscRepo;
     }
 
-    // [HttpGet("aboutus")]
-    // public async Task<ActionResult> GetAboutUs()
-    // {
-    //   var aboutUs =
-    // }
-
-    [HttpPost("aboutus")]
-    public async Task<ActionResult> CreateAboutUs(PostAboutUsViewModel model)
+    [HttpGet("aboutus")]
+    public async Task<AboutUsViewModel> GetAboutUs()
     {
-      await _miscRepo.CreateAboutUsAsync(model);
+      return await _miscRepo.GetAboutUsAsync();
+    }
+
+    [HttpPut("aboutus")]
+    public async Task<ActionResult> CreateAboutUs(PutAboutUsViewModel model)
+    {
+      await _miscRepo.UpdateAboutUsAsync(model);
       if (await _miscRepo.SaveAllAsync())
       {
         return StatusCode(201);
       }
 
-      return StatusCode(500, "Det gick inte att spara kategorin.");
+      return StatusCode(500, "Det gick inte att spara info.");
     }
   }
 }

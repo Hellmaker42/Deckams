@@ -21,18 +21,21 @@ namespace MvcAdmin.Controllers
       return View();
     }
 
-    // [HttpGet("CreateInfo")]
-    // public async Task<IActionResult> CreateInfo()
-    // {
-    //   var aboutInfo = new PostAboutUsViewModel();
-    // }
-
-    [HttpPut("CreateInfo")]
-    public async Task<IActionResult> CreateInfo(PostAboutUsViewModel aboutModel)
+    [HttpGet("aboutus")]
+    public async Task<IActionResult> GetAboutUsInfo()
     {
-      if (await _miscService.CreateInfo(aboutModel))
+      var aboutInfo = await _miscService.GetAboutUsInfo();
+      return View("UpdateAboutUs", aboutInfo);
+    }
+
+    [Route("Misc/UpdateAboutUs", Name = "Update")]
+    [HttpPut("UpdateAboutUs")]
+    public async Task<IActionResult> UpdateAboutUs(AboutUsViewModel aboutModel)
+    {
+      if (await _miscService.UpdateAboutUsInfo(aboutModel))
       {
-        return View("Index", aboutModel);
+        ViewBag.updateded = true;
+        return View("UpdateAboutUs", aboutModel);
       }
       return View("Error!");
     }

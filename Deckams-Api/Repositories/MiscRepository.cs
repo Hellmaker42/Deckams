@@ -22,13 +22,11 @@ namespace Deckams_Api.Repositories
       return modelToSend;
     }
 
-    public async Task CreateAboutUsAsync(PostAboutUsViewModel model)
+    public async Task UpdateAboutUsAsync(PutAboutUsViewModel model)
     {
-      var modelToAdd = new AboutUs
-      {
-        Info = model.Info
-      };
-      await _context.AboutUs.AddAsync(modelToAdd);
+      var oldInfo = await _context.AboutUs.FindAsync(1);
+      oldInfo!.Info = model.Info;
+      _context.Update(oldInfo);
     }
 
 

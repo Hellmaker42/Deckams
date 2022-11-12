@@ -1,0 +1,28 @@
+@model MvcAdmin.ViewModels.AboutUsViewModel
+
+
+<p class="rubrik">Redigera Info "Om oss"</p>
+<section class="form-container">
+  <form class="form" asp-route="Update" method="post">
+      <table>
+        <tr>
+          <td class="tdTop">
+            <div class="form-control">
+              <label asp-for="@Model!.Info">Om Oss:</label>
+            </div>
+          </td>
+          <td>
+            <div class="form-control">
+              <textarea rows="30" cols="100" asp-for="@Model!.Info">@Model.Info</textarea>
+            </div>
+          </td>
+        </tr>
+      </table> 
+    <button type="submit" class="btn">Spara Info</button>
+  </form>
+</section>
+<section class="updated">
+  @if(ViewBag.updateded is true){
+    <h2 class="updatedText">Uppdaterad!</h2>
+  }
+</section>
