@@ -1,0 +1,125 @@
+@model MvcAdmin.ViewModels.PostProductViewModel
+<section>
+  <table>
+    <tr>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a asp-route="CreateProduct">LÄGG TILL PRODUKT</a></div>
+      </td>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a href="">LISTA ALLA KATEGORIER</a></div>
+      </td>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a href="">LÄGG TILL TILLBEHÖR</a></div>
+      </td>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a href="">LISTA ALLA TILLBEHÖR</a></div>
+      </td>
+      <td class="tdSpaceToRight">
+        <div class="divSpaceBelow divMenu"><a href="">LISTA ALLA KATEGORIER</a></div>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section class="form-container">
+  <form class="form" asp-route="PostProduct" method="post">
+      <table border="0">
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.Name">Namn:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model!.Name"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.ArticleNr">Artikelnummer:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model!.ArticleNr"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.Description">Beskrivning:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model!.Description"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.ShortDescription">Kort Beskrivning:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model!.ShortDescription"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.QuantityInStore">Antal i lager:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model!.QuantityInStore"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.Price">Pris exklusive moms:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <input asp-for="@Model!.Price"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTop tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <label asp-for="@Model!.CategoryId">Välj en kategori:</label>
+            </div>
+          </td>
+          <td class="tdSpaceToTop">
+            <div class="form-control divSpaceBelow">
+              <select class="form-control" asp-items="@ViewBag.Categories" asp-for="@Model!.Category!.Name"></select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdAlignBottom" colspan="2">
+            <div class="form-control divSpaceBelow">
+              <button type="submit" class="btn">Spara Info</button>
+            </div>
+          </td>
+        </tr>
+      </table> 
+  </form>
+</section>
+<section class="updated">
+  @if(ViewBag.updateded is true){
+    <h2 class="updatedText">Uppdaterad!</h2>
+  }
+</section>

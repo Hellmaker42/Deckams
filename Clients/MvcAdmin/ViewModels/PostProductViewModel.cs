@@ -1,4 +1,4 @@
-namespace Deckams_Api.ViewModels.Products
+namespace MvcAdmin.ViewModels
 {
   public class PostProductViewModel
   {
@@ -10,8 +10,8 @@ namespace Deckams_Api.ViewModels.Products
     public decimal Price { get; set; }
     public int CategoryId { get; set; }
     public int ProductsOverlayId { get; set; }
-    public CategoryViewModel? Category { get; set; }
-    public List<ProductPicViewModel>? ProductPics { get; set; } = new List<ProductPicViewModel>();
-    public ProductOverlayViewModel? ProductOverlay { get; set; }
+    public CategoryViewModel Category { get; set; } = new CategoryViewModel();
+    public ICollection<ProductPicViewModel>? ProductPics { get; set; } = new List<ProductPicViewModel>();
+    public ICollection<ProductOverlayViewModel>? ProductOverlay { get; set; } = new List<ProductOverlayViewModel>();
   }
 }

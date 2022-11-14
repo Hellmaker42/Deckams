@@ -15,7 +15,21 @@ namespace Deckams_Api.Controllers
       _productRepo = productRepo;
     }
 
-    [HttpPost("category")]
+    [HttpGet("Categories")]
+    public async Task<ActionResult<List<CategoryViewModel>>> GetCategories()
+    {
+      var categories = await _productRepo.GetCategoriesAsync();
+      return categories;
+    }
+
+    [HttpGet("Categories/{id}")]
+    public async Task<ActionResult<CategoryViewModel>> GetCategoryById(int id)
+    {
+      var category = await _productRepo.GetCategoryByIdAsync(id);
+      return category;
+    }
+
+    [HttpPost("Category")]
     public async Task<ActionResult> AddCategory(PostCategoryViewModel model)
     {
       await _productRepo.AddCategoryAsync(model);
@@ -27,7 +41,7 @@ namespace Deckams_Api.Controllers
       return StatusCode(500, "Det gick inte att spara kategorin.");
     }
 
-    [HttpPost()]
+    [HttpPost("Product")]
     public async Task<ActionResult> AddProduct(PostProductViewModel model)
     {
       await _productRepo.AddProductAsync(model);

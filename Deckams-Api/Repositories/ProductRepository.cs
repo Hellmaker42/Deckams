@@ -2,6 +2,7 @@ using Deckams_Api.Data;
 using Deckams_Api.Interfaces;
 using Deckams_Api.Models.Products;
 using Deckams_Api.ViewModels.Products;
+using Microsoft.EntityFrameworkCore;
 
 namespace Deckams_Api.Repositories
 {
@@ -11,6 +12,34 @@ namespace Deckams_Api.Repositories
     public ProductRepository(DeckamsContext context)
     {
       _context = context;
+    }
+
+    public async Task<List<CategoryViewModel>> GetCategoriesAsync()
+    {
+      var categories = await _context.Categories.ToListAsync();
+      var categoriesToSend = new List<CategoryViewModel>();
+      foreach (var item in categories)
+      {
+        categoriesToSend.Add(new CategoryViewModel
+        {
+          Id = item.Id,
+          Name = item.Name
+        }
+      );
+      }
+      return categoriesToSend;
+    }
+
+    public async Task<CategoryViewModel> GetCategoryByIdAsync(int id)
+    {
+      var category = await _context.Categories.FindAsync(id);
+      var categoryToSend = new CategoryViewModel
+      {
+        Id = category!.Id,
+        Name = category.Name
+      };
+
+      return categoryToSend;
     }
 
     public async Task AddCategoryAsync(PostCategoryViewModel model)
