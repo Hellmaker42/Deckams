@@ -63,7 +63,8 @@ namespace MvcAdmin.Controllers
         Name = "Rea",
         ImgUrl = "img/ovLay/rea.jpg"
       };
-      // productModel.ProductOverlay = prodOverLay;
+      productModel.ProductOverlay = prodOverLay;
+      productModel.ProductsOverlayId = 1;
       //
 
       if (await _productService.PostProduct(productModel))

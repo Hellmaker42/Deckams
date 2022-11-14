@@ -12,6 +12,6 @@ namespace MvcAdmin.ViewModels
     public int ProductsOverlayId { get; set; }
     public CategoryViewModel Category { get; set; } = new CategoryViewModel();
     public ICollection<ProductPicViewModel>? ProductPics { get; set; } = new List<ProductPicViewModel>();
-    public ICollection<ProductOverlayViewModel>? ProductOverlay { get; set; } = new List<ProductOverlayViewModel>();
+    public ProductOverlayViewModel? ProductOverlay { get; set; } = new ProductOverlayViewModel();
   }
 }

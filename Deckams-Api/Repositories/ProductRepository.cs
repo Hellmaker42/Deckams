@@ -83,6 +83,12 @@ namespace Deckams_Api.Repositories
         };
         product.ProductPics.Add(productPic);
       }
+      if (await _context.Categories.Where(c => c.Name!.ToLower() == product.Category.Name!.ToLower()).SingleOrDefaultAsync() is not null)
+      {
+        var cat = await _context.Categories.Where(c => c.Name!.ToLower() == product.Category.Name!.ToLower()).SingleOrDefaultAsync();
+        product.Category = new Category();
+        product.CategoryId = cat!.Id;
+      }
 
       await _context.Products.AddAsync(product);
     }

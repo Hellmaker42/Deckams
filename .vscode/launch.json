@@ -14,6 +14,7 @@
       "args": [],
       "cwd": "${workspaceFolder}/Clients/MvcAdmin",
       "stopAtEntry": false,
+      "requireExactSource": false,
       "serverReadyAction": {
         "action": "openExternally",
         "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
@@ -36,6 +37,7 @@
       "args": [],
       "cwd": "${workspaceFolder}/Deckams-Api",
       "stopAtEntry": false,
+      "requireExactSource": false,
       "serverReadyAction": {
         "action": "openExternally",
         "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
